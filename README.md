@@ -12,7 +12,7 @@ A web application that provides a list of items within a variety of categories a
 
 
 ## Introduction
-
+Modern web applications perform a variety of functions and provide amazing features and utilities to their users; but deep down, it’s really all just CRUD -- creating, reading, updating and deleting data. In this project, I'll combine my knowledge of building dynamic websites with persistent data storage to create a web application that provides a compelling service to my users.
 
 
 ## Technologies
