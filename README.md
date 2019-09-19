@@ -49,7 +49,10 @@ When it is finished running, run the command `vagrant ssh` to log in.
 
 
 ## What have I done?
-- [x] 
+- [x] You will learn how to develop a RESTful web application using the Python framework Flask along with implementing third-party OAuth authentication. You will then learn when to properly use the various HTTP methods available to you and how these methods relate to CRUD (create, read, update and delete) operations.
+
+Efficiently interacting with data is the backbone upon which performant web applications are built
+Properly implementing authentication mechanisms and appropriately mapping HTTP methods to CRUD operations are core features of a properly secured web application
 
 
 ##### Sources
