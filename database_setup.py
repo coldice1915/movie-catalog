@@ -6,33 +6,37 @@ from sqlalchemy import create_engine
 
 Base = declarative_base()
 
-class User(base):
+
+class User(Base):
     __tablename__ = 'user'
 
     name = Column(String(80), nullable = False)
     id = Column(Integer, primary_key = True)
 
 
-class MovieGenre(base):
-    __tablename__ = 'movie_genre'
+class MovieGenre(Base):
+    __tablename__ = 'movieGenre'
 
     name = Column(String(80), nullable = False)
     id = Column(Integer, primary_key = True)
-    user_id = Column(Integer, ForeignKey('userid'))
+    user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
 
 
-
-class Movie(base):
+class Movie(Base):
     __tablename__ = 'movie'
 
     name = Column(String(250), nullable = False)
     id = Column(Integer, primary_key = True)
+    summary = Column(String(250))
+    rating = Column(String(80))
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
+    movieGenre_id = Column(Integer, ForeignKey('movieGenre.id'))
+    movieGenre = relationship(MovieGenre)
 
 
+engine = create_engine('sqlite:///moviecatalog.db')
 
 
-
-
-engine = create_engine('sqlite:///')
 Base.metadata.create_all(engine)
