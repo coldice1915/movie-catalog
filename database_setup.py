@@ -15,7 +15,7 @@ class User(Base):
 
 
 class MovieGenre(Base):
-    __tablename__ = 'movie_genre'
+    __tablename__ = 'moviegenre'
 
     name = Column(String(80), nullable=False)
     id = Column(Integer, primary_key=True)
@@ -32,8 +32,8 @@ class Movie(Base):
     rating = Column(String(80))
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
-    movie_genre_id = Column(Integer, ForeignKey('movie_genre.id'))
-    movie_genre = relationship(MovieGenre)
+    moviegenre_id = Column(Integer, ForeignKey('moviegenre.id'))
+    moviegenre = relationship(MovieGenre)
 
 
 engine = create_engine('sqlite:///moviecatalog.db')
