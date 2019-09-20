@@ -16,8 +16,9 @@ session.commit()
 session.query(MovieGenre).all()
 
 avengers = Movie(name="The Avengers",
-                 summary="Coming together from separate movies, good guys with superpowers band together to fight the bad guy.", rating="8.0", movie_genre=actionGenre)
+                 summary="Coming together from separate movies, good guys with superpowers band together to fight the bad guy.", rating="8.0", moviegenre=actionGenre)
 
 session.add(avengers)
 session.commit()
 session.query(Movie).all()
+
