@@ -6,6 +6,29 @@ from sqlalchemy import create_engine
 
 Base = declarative_base()
 
+class User(base):
+    __tablename__ = 'user'
+
+    name = Column(String(80), nullable = False)
+    id = Column(Integer, primary_key = True)
+
+
+class MovieGenre(base):
+    __tablename__ = 'movie_genre'
+
+    name = Column(String(80), nullable = False)
+    id = Column(Integer, primary_key = True)
+    user_id = Column(Integer, ForeignKey('userid'))
+    user = relationship(User)
+
+
+
+class Movie(base):
+    __tablename__ = 'movie'
+
+    name = Column(String(250), nullable = False)
+    id = Column(Integer, primary_key = True)
+
 
 
 
