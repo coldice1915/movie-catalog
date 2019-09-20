@@ -10,15 +10,15 @@ Base = declarative_base()
 class User(Base):
     __tablename__ = 'user'
 
-    name = Column(String(80), nullable = False)
-    id = Column(Integer, primary_key = True)
+    name = Column(String(80), nullable=False)
+    id = Column(Integer, primary_key=True)
 
 
 class MovieGenre(Base):
-    __tablename__ = 'movieGenre'
+    __tablename__ = 'movie_genre'
 
-    name = Column(String(80), nullable = False)
-    id = Column(Integer, primary_key = True)
+    name = Column(String(80), nullable=False)
+    id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
 
@@ -26,14 +26,14 @@ class MovieGenre(Base):
 class Movie(Base):
     __tablename__ = 'movie'
 
-    name = Column(String(250), nullable = False)
-    id = Column(Integer, primary_key = True)
+    name = Column(String(250), nullable=False)
+    id = Column(Integer, primary_key=True)
     summary = Column(String(250))
     rating = Column(String(80))
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
-    movieGenre_id = Column(Integer, ForeignKey('movieGenre.id'))
-    movieGenre = relationship(MovieGenre)
+    movie_genre_id = Column(Integer, ForeignKey('movie_genre.id'))
+    movie_genre = relationship(MovieGenre)
 
 
 engine = create_engine('sqlite:///moviecatalog.db')
