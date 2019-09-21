@@ -1,7 +1,7 @@
 from database_setup import Base, User, Genre, Movie
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 
@@ -17,14 +17,7 @@ session = DBSession()
 def genreMovie(genre_id):
     genre = session.query(Genre)
     movies = session.query(Movie)
-    output = ''
-    for m in movies:
-        output += m.name
-        output += '<br>'
-        output += m.rating
-        output += '<br>'
-        output += m.summary
-    return output
+    return render_template('movies.html', genre=genre, movies=movies)
 
 
 @app.route('/genre/<int:genre_id>/new/')
