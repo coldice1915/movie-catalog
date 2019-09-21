@@ -1,13 +1,19 @@
 <html>
     <body>
         <h1>{{genre.name}}</h1>
+
             {% for m in movies %}
-            {{m.name}}
+
+                {{m.name}}
         </br>
-            {{m.rating}}
+                {{m.rating}}
         </br>
-            {{m.summary}}
+                {{m.summary}}
         </br>
+                <a href='{{ url_for('editMovie', genre_id=1, movie_id=1) }}'>Edit</a>
+        </br>
+                <a href='{{ url_for('deleteMovie', genre_id=1, movie_id=1) }}'>Delete</a>
+
             {% endfor %}
     </body>
 </html>
