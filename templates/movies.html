@@ -1,12 +1,12 @@
 <html>
     <body>
-        <h1>{{genre.name</h1>
-            {% for i in items %}
-            {{i.name}}
+        <h1>{{genre.name}}</h1>
+            {% for m in movies %}
+            {{m.name}}
         </br>
-            {{i.description}}
+            {{m.rating}}
         </br>
-            {{i.price}}
+            {{m.summary}}
         </br>
             {% endfor %}
     </body>
