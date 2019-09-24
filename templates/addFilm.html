@@ -1,0 +1,32 @@
+<html>
+
+<head>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<h1>Add Film</h1>
+
+<form action="#" method='POST'>
+
+	<p>Name:</p>
+		<input type ='text' size='30' name='name'>
+	<p>Summary:</p>
+		<input type ='text' size='30' name='summary'>
+	<p>Rating:</p>
+        <input type ='text' size='30' name='rating'>
+    <p>What type:</p>
+        <input type='radio' name='whatType' value='Movie'>Movie</br>
+		<input type ='radio' name='whatType' value ='TV Show'>TV Show</br>
+    <p>Link:</p>
+        <input type='text' size='30' name='link'>
+	</br>
+
+	<input type='submit' value='Create'>
+
+</form>
+
+	<a href='{{url_for('showGenres')}}'> Cancel </a>
+
+</body>
+</html>

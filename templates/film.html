@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class='pane'>
+        <h1>{{ genre.name }}</h1>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+        <ul>
+            {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% if films !=[] %}
+
+        <a href="{{url_for('addFilm', genre_id = genre.id )}}">Add New Film</a>
+        </br></br>
+
+        <h2>Movies</h2>
+
+        {% for f in films %}
+        {% if f.whatType == 'Movie' %}
+
+        <p>{{f.name}}</p>
+
+
+        <p>{{f.summary}}</p>
+
+
+        <p>{{f.rating}}</p>
+
+
+        <p>{{f.link}}</p>
+
+        <a href='{{url_for('editFilm', genre_id = genre.id, film_id=f.id ) }}'>Edit</a>
+        </br>
+        <a href='{{url_for('deleteFilm', genre_id = genre.id, film_id=f.id ) }}'>Delete</a>
+        </br>
+        </br>
+        {% endif %}
+
+        {% endfor %}
+
+
+
+        </br></br>
+
+        <h2>TV Series</h2>
+
+        {% for f in films %}
+        {% if f.whatType == 'TV Show' %}
+
+        <p>{{f.name}}</p>
+
+
+        <p>{{f.summary}}</p>
+
+
+        <p>{{f.rating}}</p>
+
+
+        <p>{{f.link}}</p>
+        
+        <a href='{{url_for('editFilm', genre_id = genre.id, film_id=f.id ) }}'>Edit</a>
+        </br>
+        <a href='{{url_for('deleteFilm', genre_id = genre.id, film_id=f.id ) }}'>Delete</a>
+        </br>
+        </br>
+        {% endif %}
+
+        {% endfor %}
+
+
+
+        {% else %}
+        <p> You currently have no films. <p>
+                <a href="{{url_for('addFilm', genre_id = genre.id )}}">Add New Film</a>
+                {% endif %}
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <h1> Edit Film </h1>
+
+    <form action="#" method='post'>
+
+        <p>Name:</p>
+        <input type='text' size='30' name='name' placeholder='{{film.name }}'>
+
+        <p>Summary:</p>
+        <input type='text' size='30' name='summary' placeholder='{{film.summary}}'>
+
+        <p>Rating:</p>
+        <input type='text' size='30' name='rating' placeholder='{{film.rating}}'>
+
+        <p>Movie or TV Show:<p>
+                {% if film.whatType == 'Movie' %}
+                <dd><input type='radio' name='whatType' value='Movie' checked>Movie</dd>
+                {%else%}
+                <dd><input type='radio' name='whatType' value='Movie'>Movie</dd>
+                {% endif %}
+
+                {% if film.whatType == 'TV Show' %}
+                <dd><input type='radio' name='whatType' value='TV Show' checked>TV Show</dd>
+
+                {%else%}
+                <dd><input type='radio' name='whatType' value='TV Show'>TV Show</dd>
+                {% endif %}
+        
+        <p>Link:</p>
+        <input type='text' size='30' name='link' placeholder='{{film.link}}'>
+
+        <p>
+        <input type='submit' value='Edit'>
+        </p>
+
+
+        <a href='{{url_for('showGenres')}}'> Cancel </a>
+
+
+    </form>
+</body>
+
+</html>
