@@ -5,15 +5,27 @@
 <body>
     <div class = 'pane'>
         <h1>Genres</h1>
+        
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+        <ul>
+            {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
         <a href="{{url_for('newGenre')}}" > <h3> Create a New Genre </h3> </a>
 
         {% for genre in genres %}
 
         <a href = "{{url_for('showFilm', genre_id = genre.id)}}"> <p>{{genre.name}}</p></a>
 
-        <p><a href = "{{url_for('editGenre', genre_id = genre.id)}}">Edit Genre</a></p>
+        <a href = "{{url_for('editGenre', genre_id = genre.id)}}">Edit</a>
             
-        <p> <a href = "{{url_for('deleteGenre', genre_id = genre.id)}}">Delete Genre</a> </p>
+        <a href = "{{url_for('deleteGenre', genre_id = genre.id)}}">Delete</a>
 
         {% endfor %}
     </div>
