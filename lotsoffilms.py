@@ -17,7 +17,7 @@ actionGenre = Genre(name="Action")
 session.add(actionGenre)
 session.commit()
 
-film1 = Film(name="Avengers", summary="Heroes coming together from different movies, the good guys with superpowers band together to fight the bad guy.", rating="8.0", whatType="Movie", link=[Trailer]https://www.youtube.com/watch?v=eOrNdBpGMv8/Trailer, genre=actionGenre)
+film1 = Film(name="Avengers", summary="Heroes coming together from different movies, the good guys with superpowers band together to fight the bad guy.", rating="8.0", whatType="Movie", link="https://www.youtube.com/watch?v=eOrNdBpGMv8/", genre=actionGenre)
 
 session.add(film1)
 session.commit()
